@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Afghan Carpets - Luxury Design System
+   Primary Surface: #C9B9B2 (Warm Beige)
+   Brand Accent: #3B6181 (Deep Ocean Blue)
+   Text/Dark: #1D2530 (Midnight Navy)
+*/
+
+@layer base {
+  :root {
+    /* Core Brand Colors - HSL */
+    --background: 20 15% 75%;
+    --foreground: 215 25% 15%;
+
+    --card: 20 15% 78%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 20 15% 80%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 207 37% 37%;
+    --primary-foreground: 20 15% 75%;
+
+    --secondary: 20 12% 70%;
+    --secondary-foreground: 215 25% 15%;
+
+    --muted: 20 10% 72%;
+    --muted-foreground: 215 15% 35%;
+
+    --accent: 207 37% 37%;
+    --accent-foreground: 20 15% 75%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 10% 68%;
+    --input: 20 10% 68%;
+    --ring: 207 37% 37%;
+
+    --radius: 0.25rem;
+
+    /* Extended Brand Tokens */
+    --surface-warm: 20 15% 75%;
+    --surface-light: 30 20% 92%;
+    --surface-cream: 35 25% 88%;
+    --brand-blue: 207 37% 37%;
+    --brand-blue-dark: 207 40% 28%;
+    --brand-blue-light: 207 35% 50%;
+    --text-dark: 215 25% 15%;
+    --text-muted: 215 15% 40%;
+
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px rgba(29, 37, 48, 0.08);
+    --shadow-medium: 0 8px 30px rgba(29, 37, 48, 0.12);
+    --shadow-elevated: 0 20px 60px rgba(29, 37, 48, 0.15);
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Sidebar */
+    --sidebar-background: 20 15% 75%;
+    --sidebar-foreground: 215 25% 15%;
+    --sidebar-primary: 207 37% 37%;
+    --sidebar-primary-foreground: 20 15% 75%;
+    --sidebar-accent: 20 12% 70%;
+    --sidebar-accent-foreground: 215 25% 15%;
+    --sidebar-border: 20 10% 68%;
+    --sidebar-ring: 207 37% 37%;
+  }
+
+  .dark {
+    --background: 215 25% 12%;
+    --foreground: 20 15% 85%;
+
+    --card: 215 25% 15%;
+    --card-foreground: 20 15% 85%;
+
+    --popover: 215 25% 15%;
+    --popover-foreground: 20 15% 85%;
+
+    --primary: 207 37% 50%;
+    --primary-foreground: 215 25% 10%;
+
+    --secondary: 215 20% 22%;
+    --secondary-foreground: 20 15% 85%;
+
+    --muted: 215 20% 22%;
+    --muted-foreground: 20 10% 60%;
+
+    --accent: 207 37% 50%;
+    --accent-foreground: 215 25% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 25%;
+    --input: 215 20% 25%;
+    --ring: 207 37% 50%;
+
+    --sidebar-background: 215 25% 12%;
+    --sidebar-foreground: 20 15% 85%;
+    --sidebar-primary: 207 37% 50%;
+    --sidebar-primary-foreground: 215 25% 10%;
+    --sidebar-accent: 215 20% 22%;
+    --sidebar-accent-foreground: 20 15% 85%;
+    --sidebar-border: 215 20% 25%;
+    --sidebar-ring: 207 37% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-medium tracking-tight;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/40 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/60;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-wider uppercase;
+    @apply bg-primary text-primary-foreground;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-brand-blue-dark hover:shadow-medium;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-luxury-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-wider uppercase;
+    @apply border-2 border-primary text-primary bg-transparent;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-primary hover:text-primary-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-hero {
+    @apply inline-flex items-center justify-center px-10 py-5 text-base font-medium tracking-widest uppercase;
+    @apply bg-primary text-primary-foreground;
+    @apply transition-all duration-500 ease-out;
+    @apply hover:bg-brand-blue-dark hover:shadow-elevated hover:scale-[1.02];
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-foreground/50;
+  }
+
+  .btn-hero-ghost {
+    @apply inline-flex items-center justify-center px-10 py-5 text-base font-medium tracking-widest uppercase;
+    @apply border-2 border-surface-cream text-surface-cream bg-transparent;
+    @apply transition-all duration-500 ease-out;
+    @apply hover:bg-surface-cream hover:text-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-surface-cream/50;
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .container-luxury {
+    @apply max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16;
+  }
+
+  /* Text Styles */
+  .heading-display {
+    font-family: var(--font-display);
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] tracking-tight;
+  }
+
+  .heading-section {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight;
+  }
+
+  .heading-card {
+    font-family: var(--font-display);
+    @apply text-xl md:text-2xl font-medium leading-tight;
+  }
+
+  .text-body-lg {
+    @apply text-lg md:text-xl leading-relaxed text-muted-foreground;
+  }
+
+  .text-body {
+    @apply text-base leading-relaxed text-muted-foreground;
+  }
+
+  /* Card Styles */
+  .card-luxury {
+    @apply bg-card rounded-sm overflow-hidden;
+    box-shadow: var(--shadow-soft);
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .card-luxury:hover {
+    box-shadow: var(--shadow-medium);
+    @apply -translate-y-1;
+  }
+
+  /* Image Overlay */
+  .image-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent;
+  }
+
+  .image-overlay-dark {
+    @apply absolute inset-0 bg-foreground/40;
+  }
+
+  /* Elegant Underline */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-primary;
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Product Grid */
+  .product-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8;
+  }
+
+  /* Divider */
+  .divider-elegant {
+    @apply h-px bg-gradient-to-r from-transparent via-border to-transparent;
+  }
+}
+
+@layer utilities {
+  /* Brand Colors as Utilities */
+  .bg-surface-warm {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .bg-surface-light {
+    background-color: hsl(var(--surface-light));
+  }
+
+  .bg-surface-cream {
+    background-color: hsl(var(--surface-cream));
+  }
+
+  .bg-brand-blue {
+    background-color: hsl(var(--brand-blue));
+  }
+
+  .bg-brand-blue-dark {
+    background-color: hsl(var(--brand-blue-dark));
+  }
+
+  .text-brand-blue {
+    color: hsl(var(--brand-blue));
+  }
+
+  .text-brand-blue-dark {
+    color: hsl(var(--brand-blue-dark));
+  }
+
+  .border-brand-blue {
+    border-color: hsl(var(--brand-blue));
+  }
+
+  /* Animation Delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
+  /* Aspect Ratios for Products */
+  .aspect-carpet {
+    aspect-ratio: 3/4;
+  }
+
+  .aspect-hero {
+    aspect-ratio: 16/9;
+  }
+
+  /* Text Balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
